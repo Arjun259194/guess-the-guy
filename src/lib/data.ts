@@ -3,16 +3,15 @@ export type DataSet = {
   author: string;
 };
 
-export enum Catagories {
-  India = "india",
-  Marvel = "marvel",
-  America = "america",
-  StarWars = "starwars",
-}
+export type Catagories =
+  | "india"
+  | "marvel"
+  | "america"
+  | "starwars"
 
 const Data = new Map<Catagories, DataSet[]>();
 
-Data.set(Catagories.India, [
+Data.set("india", [
   {
     quote: "The best way to find yourself is to lose yourself in the service of others.",
     author: "Mahatma Gandhi",
@@ -229,7 +228,7 @@ Data.set(Catagories.India, [
   },
 ]);
 
-Data.set(Catagories.America, [
+Data.set("america", [
   {
     quote: "Injustice anywhere is a threat to justice everywhere.",
     author: "Martin Luther King Jr.",
@@ -559,7 +558,7 @@ Data.set(Catagories.America, [
   },
 ]);
 
-Data.set(Catagories.Marvel, [
+Data.set("marvel", [
   {
     quote: "I am Iron Man.",
     author: "Tony Stark",
@@ -671,10 +670,6 @@ Data.set(Catagories.Marvel, [
   {
     quote: "I can do anything you can do, better.",
     author: "Loki",
-  },
-  {
-    quote: "I am Steve Rogers.",
-    author: "Steve Rogers",
   },
   {
     quote: "I can do this all day.",
@@ -758,7 +753,7 @@ Data.set(Catagories.Marvel, [
   },
 ]);
 
-Data.set(Catagories.StarWars, [
+Data.set("starwars", [
   {
     quote: "May the Force be with you.",
     author: "Obi-Wan Kenobi",
@@ -817,7 +812,7 @@ Data.set(Catagories.StarWars, [
   },
   {
     quote: "I'm one with the Force. The Force is with me.",
-    author: "Chirrut Îmwe",
+    author: "Chirrut",
   },
   {
     quote: "This is the way.",
@@ -893,7 +888,7 @@ Data.set(Catagories.StarWars, [
   },
   {
     quote: "I'm one with the Force. The Force is with me.",
-    author: "Chirrut Îmwe",
+    author: "Chirrut",
   },
   {
     quote: "This is the way.",
@@ -945,7 +940,7 @@ Data.set(Catagories.StarWars, [
   },
   {
     quote: "I'm one with the Force. The Force is with me.",
-    author: "Chirrut Îmwe",
+    author: "Chirrut",
   },
   {
     quote: "This is the way.",
@@ -960,3 +955,5 @@ Data.set(Catagories.StarWars, [
     author: "Narrator",
   },
 ]);
+
+export default Data;

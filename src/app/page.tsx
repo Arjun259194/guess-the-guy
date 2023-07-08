@@ -1,12 +1,16 @@
-import Link from "next/link";
+import { Button } from "@/components/UI/Button";
 
 export default function Home() {
   return (
-    <main>
-      <h2>Welcome to Guess-The-Guy</h2>
-      <Link href="/game">
-        <button>start</button>
-      </Link>
+    <main className="container mx-auto">
+      <h2 className="text-center capitalize font-bold text-6xl">
+        Welcome to Guess-The-Guy
+      </h2>
+      <div className="space-y-5">
+        <Button size="lg">India</Button>
+        <Button>India</Button>
+        <Button size="sm">India</Button>
+      </div>
     </main>
   );
 }
