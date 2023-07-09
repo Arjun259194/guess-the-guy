@@ -9,11 +9,99 @@ export const categories = {
   marvel: "/img/marvel.jpg",
   starwars: "/img/starwars.webp",
   "harry-porter": "/img/harryPorter.jpg",
+  "disney-animation": "/img/disney-animation.webp",
 };
 
 export type Categories = keyof typeof categories;
 
 const Data = new Map<Categories, DataSet[]>();
+
+Data.set("disney-animation", [
+  {
+    quote:
+      "The past can hurt. But the way I see it, you can either run from it or learn from it.",
+    author: "Rafiki",
+  },
+  {
+    quote: "Ohana means family. Family means nobody gets left behind or forgotten.",
+    author: "Lilo",
+  },
+  {
+    quote: "To infinity and beyond!",
+    author: "Buzz Lightyear",
+  },
+  {
+    quote: "Hakuna Matata! It means no worries for the rest of your days.",
+    author: "Timon and Pumbaa",
+  },
+  {
+    quote: "The flower that blooms in adversity is the most rare and beautiful of all.",
+    author: "The Emperor",
+  },
+  {
+    quote: "Just keep swimming.",
+    author: "Dory",
+  },
+  {
+    quote: "Remember who you are.",
+    author: "Mufasa",
+  },
+  {
+    quote:
+      "You're braver than you believe, stronger than you seem, and smarter than you think.",
+    author: "Christopher Robin",
+  },
+  {
+    quote:
+      "A true hero isn't measured by the size of his strength, but by the strength of his heart.",
+    author: "Zeus",
+  },
+  {
+    quote: "All it takes is faith and trust.",
+    author: "Peter Pan",
+  },
+  {
+    quote: "If you can't say something nice, don't say nothing at all.",
+    author: "Thumper",
+  },
+  {
+    quote: "The seaweed is always greener in somebody else's lake.",
+    author: "Sebastian",
+  },
+  {
+    quote: "Oh yes, the past can hurt. But you can either run from it, or learn from it.",
+    author: "Rafiki",
+  },
+  {
+    quote: "Love is putting someone else's needs before yours.",
+    author: "Olaf",
+  },
+  {
+    quote: "Adventure is out there!",
+    author: "Ellie",
+  },
+  {
+    quote: "If you focus on what you left behind, you will never see what lies ahead.",
+    author: "Gusteau",
+  },
+  {
+    quote: "Some people are worth melting for.",
+    author: "Olaf",
+  },
+  {
+    quote: "If you can dream it, you can do it.",
+    author: "Walt Disney",
+  },
+  {
+    quote: "Even miracles take a little time.",
+    author: "Fairy Godmother",
+  },
+  {
+    quote:
+      "You must not let anyone define your limits because of where you come from. Your only limit is your soul.",
+    author: "Gusteau",
+  },
+]);
 
 Data.set("harry-porter", [
   {
@@ -623,7 +711,7 @@ Data.set("marvel", [
     author: "Thanos",
   },
   {
-    quote: "He may have been your father, boy, but he wasn’t your daddy.",
+    quote: "He may have been your father, boy, but he wasn't your daddy.",
     author: "Yondu",
   },
   {
@@ -637,7 +725,7 @@ Data.set("marvel", [
   },
   {
     quote:
-      "But a thing isn’t beautiful because it lasts. It’s a privilege to be among them.",
+      "But a thing isn't beautiful because it lasts. It's a privilege to be among them.",
     author: "Vision",
   },
   {
@@ -649,7 +737,7 @@ Data.set("marvel", [
     author: "Groot",
   },
   {
-    quote: "I can’t control your fear, I can only control mine.",
+    quote: "I can't control your fear, I can only control mine.",
     author: "Wanda",
   },
   {
@@ -665,11 +753,11 @@ Data.set("marvel", [
     author: "Gamora/Thanos",
   },
   {
-    quote: "I’m Mary Poppins y’all!",
+    quote: "I'm Mary Poppins y'all!",
     author: "Yondu",
   },
   {
-    quote: "That’s my secret, Captain I’m always angry.",
+    quote: "That's my secret, Captain I'm always angry.",
     author: "Bruce Banner",
   },
   {
@@ -677,29 +765,29 @@ Data.set("marvel", [
     author: "Tony Stark",
   },
   {
-    quote: "Don’t waste it. Don’t waste your life.",
+    quote: "Don't waste it. Don't waste your life.",
     author: "Ho Yinsen",
   },
   {
-    quote: "He’s a friend from work!",
+    quote: "He's a friend from work!",
     author: "Thor",
   },
   {
     quote:
-      "Vengeance has consumed you. It’s consuming them. I’m done letting it consume me.",
-    author: "T’Challa",
+      "Vengeance has consumed you. It's consuming them. I'm done letting it consume me.",
+    author: "T'Challa",
   },
   {
     quote:
-      "Is this your king? Huh? Is this your king? He’s supposed to protect you! To lead Wakanda into the future! Nah, I’m your king!",
+      "Is this your king? Huh? Is this your king? He's supposed to protect you! To lead Wakanda into the future! Nah, I'm your king!",
     author: "Killmonger",
   },
   {
-    quote: "I’m gonna have to rain check that dance.",
+    quote: "I'm gonna have to rain check that dance.",
     author: "Steve Rogers",
   },
   {
-    quote: "Mr. Stark, I Don’t Feel So Good.",
+    quote: "Mr. Stark, I Don't Feel So Good.",
     author: "Peter Parker",
   },
   {
@@ -707,7 +795,7 @@ Data.set("marvel", [
     author: "Groot",
   },
   {
-    quote: "You shouldn’t have killed my mom and squished my Walkman.",
+    quote: "You shouldn't have killed my mom and squished my Walkman.",
     author: "Peter Quill",
   },
   {
@@ -716,15 +804,15 @@ Data.set("marvel", [
   },
   {
     quote: "In times of crisis, the wise build bridges while the foolish build barriers.",
-    author: "T’Challa",
+    author: "T'Challa",
   },
   {
     quote:
-      "You think life takes more than it gives, but not today. Today it’s giving us something. It is giving us a chance.",
+      "You think life takes more than it gives, but not today. Today it's giving us something. It is giving us a chance.",
     author: "Star-Lord",
   },
   {
-    quote: "It’s alright, you could never hurt me. I just feel you.",
+    quote: "It's alright, you could never hurt me. I just feel you.",
     author: "Vision",
   },
   {
@@ -736,11 +824,11 @@ Data.set("marvel", [
     author: "Loki",
   },
   {
-    quote: "We’re in the endgame now.",
+    quote: "We're in the endgame now.",
     author: "Dr. Stephen Strange",
   },
   {
-    quote: "Let me go. It’s okay.",
+    quote: "Let me go. It's okay.",
     author: "Black Widow",
   },
   {
@@ -762,38 +850,38 @@ Data.set("marvel", [
     author: "Shuri",
   },
   {
-    quote: "I’ll get you all the cheeseburgers you want.",
+    quote: "I'll get you all the cheeseburgers you want.",
     author: "Happy Hogan",
   },
   {
     quote:
-      "I’m made of rocks, as you can see. But don’t let that intimidate you. You don’t need to be afraid unless you’re made of scissors. Just a little rock-paper-scissor joke for you.",
+      "I'm made of rocks, as you can see. But don't let that intimidate you. You don't need to be afraid unless you're made of scissors. Just a little rock-paper-scissor joke for you.",
     author: "Korg",
   },
   {
-    quote: "I think you look great, Cap. As far as I’m concerned, that’s America’s ass.",
+    quote: "I think you look great, Cap. As far as I'm concerned, that's America's ass.",
     author: "Ant-Man",
   },
   {
-    quote: "If you’re nothing without this suit, then you shouldn’t have it.",
+    quote: "If you're nothing without this suit, then you shouldn't have it.",
     author: "Tony Stark",
   },
   {
-    quote: "I’ll explain when you’re older, Hawkeye.",
+    quote: "I'll explain when you're older, Hawkeye.",
     author: "Laura Barton",
   },
   {
     quote:
-      "What is this thing? Look how it thinks it’s so cool. It’s not cool to get help. Walk by yourself you little gargoyle.",
+      "What is this thing? Look how it thinks it's so cool. It's not cool to get help. Walk by yourself you little gargoyle.",
     author: "Rocket",
   },
   {
-    quote: "You’re The Spiderling. Crime-Fighting Spider. You’re Spider-Boy?",
+    quote: "You're The Spiderling. Crime-Fighting Spider. You're Spider-Boy?",
     author: "Tony Stark",
   },
   {
     quote:
-      "It’s an honor to meet you, officially. I sort of met you, I mean, I watched you while you were sleeping.",
+      "It's an honor to meet you, officially. I sort of met you, I mean, I watched you while you were sleeping.",
     author: "Phil Coulson",
   },
   {
@@ -802,11 +890,11 @@ Data.set("marvel", [
   },
   {
     quote:
-      "Can’t have a revolution without somebody to overthrow, so you’re welcome, and uh, it’s a tie.",
+      "Can't have a revolution without somebody to overthrow, so you're welcome, and uh, it's a tie.",
     author: "Grandmaster",
   },
   {
-    quote: "His name is Redwing. He’s cute. Go ahead, pet him.",
+    quote: "His name is Redwing. He's cute. Go ahead, pet him.",
     author: "Sam Wilson",
   },
   {
@@ -814,11 +902,11 @@ Data.set("marvel", [
     author: "James Rhodes",
   },
   {
-    quote: "This is the fight of our lives, and we’re going to win. Whatever it takes.",
+    quote: "This is the fight of our lives, and we're going to win. Whatever it takes.",
     author: "Steve Rogers",
   },
   {
-    quote: "You get hurt, hurt ‘em back. You get killed, walk it off.",
+    quote: "You get hurt, hurt 'em back. You get killed, walk it off.",
     author: "Steve Rogers",
   },
   {
@@ -831,16 +919,16 @@ Data.set("marvel", [
   },
   {
     quote:
-      "‘Boh’ is my new superpower. It’s like the anti-Aloha. I was born to say this word.",
+      "Boh' is my new superpower. It's like the anti-Aloha. I was born to say this word.",
     author: "M.J.",
   },
   {
-    quote: "You’re repeating yourself! You’re repeating yourself!",
+    quote: "You're repeating yourself! You're repeating yourself!",
     author: "Scott Lang",
   },
   {
     quote:
-      "The price of freedom is high, it always has been. And it’s a price I’m willing to pay. And if I’m the only one, then so be it. But I’m willing to bet I’m not.",
+      "The price of freedom is high, it always has been. And it's a price I'm willing to pay. And if I'm the only one, then so be it. But I'm willing to bet I'm not.",
     author: "Steve Rogers",
   },
   {
@@ -849,7 +937,7 @@ Data.set("marvel", [
     author: "Carol Danvers",
   },
   {
-    quote: "Then again that’s the hero gig, part of the journey is the end.",
+    quote: "Then again that's the hero gig, part of the journey is the end.",
     author: "Tony Stark",
   },
   {
@@ -863,26 +951,26 @@ Data.set("marvel", [
   },
   {
     quote:
-      "Let me tell you. That kid’s not even here yet and, there’s nothing I wouldn’t do for him.",
+      "Let me tell you. That kid's not even here yet and, there's nothing I wouldn't do for him.",
     author: "Howard Stark",
   },
   {
     quote:
-      "Don’t do anything I would do, and don’t do anything I wouldn’t do. There’s a little gray area in there. That’s where you operate.",
+      "Don't do anything I would do, and don't do anything I wouldn't do. There's a little gray area in there. That's where you operate.",
     author: "Tony Stark",
   },
   {
     quote:
-      "This is your chance. To earn that look in your daughter’s eyes. To become the hero that she already thinks you are. It’s not about saving our world, it’s about saving theirs.",
+      "This is your chance. To earn that look in your daughter's eyes. To become the hero that she already thinks you are. It's not about saving our world, it's about saving theirs.",
     author: "Hank Pym",
   },
   {
     quote:
-      "You call me ‘young lady’ again, I’ll shove my foot up somewhere it’s not supposed to be.",
+      "You call me ‘young lady' again, I'll shove my foot up somewhere it's not supposed to be.",
     author: "Maria Rambeau",
   },
   {
-    quote: "I’m not sure you understand the concept of a getaway car.",
+    quote: "I'm not sure you understand the concept of a getaway car.",
     author: "Sharon Carter",
   },
   {
@@ -896,7 +984,7 @@ Data.set("marvel", [
   },
   {
     quote:
-      "Welcome to the Time Variance Authority! I’m Miss Minutes, and it’s my job to catch you up before you stand trial for your crimes! So let’s not waste another minute. Settle in, sharpen your pencils and check this out!",
+      "Welcome to the Time Variance Authority! I'm Miss Minutes, and it's my job to catch you up before you stand trial for your crimes! So let's not waste another minute. Settle in, sharpen your pencils and check this out!",
     author: "Miss Minutes",
   },
   {
@@ -913,7 +1001,7 @@ Data.set("marvel", [
     author: "Doctor Strange",
   },
   {
-    quote: "I can’t believe you were D.B. cooper! Come on!",
+    quote: "I can't believe you were D.B. cooper! Come on!",
     author: "Mobius",
   },
   {
@@ -926,7 +1014,7 @@ Data.set("marvel", [
   },
   {
     quote:
-      "You, Vision, are the piece of the mind stone that lives in me, you are a body of wires, and blood, and bone that I created. You are my sadness and my hope. But mostly, you’re my love.",
+      "You, Vision, are the piece of the mind stone that lives in me, you are a body of wires, and blood, and bone that I created. You are my sadness and my hope. But mostly, you're my love.",
     author: "Wanda Maximoff",
   },
   {
@@ -935,16 +1023,16 @@ Data.set("marvel", [
   },
   {
     quote:
-      "This is wild. The two of you, same person. I mean it’s a little unnatural. But, wow! Wild.",
+      "This is wild. The two of you, same person. I mean it's a little unnatural. But, wow! Wild.",
     author: "He Who Remains",
   },
   {
     quote:
-      "My mom, dad, Uncle Ben, Mr. Stark. Now Happy. I’ve… I’ve Lost A Lot. But my Aunt May says, used to say, that if we don’t keep smiling when they can’t, then we might as well be gone too.",
+      "My mom, dad, Uncle Ben, Mr. Stark. Now Happy. I've… I've Lost A Lot. But my Aunt May says, used to say, that if we don't keep smiling when they can't, then we might as well be gone too.",
     author: "Peter Parker/Zombie Hunter Spider-Man",
   },
   {
-    quote: "I don’t like bullies. I don’t care where they’re from.",
+    quote: "I don't like bullies. I don't care where they're from.",
     author: "Steve Rogers",
   },
 ]);
