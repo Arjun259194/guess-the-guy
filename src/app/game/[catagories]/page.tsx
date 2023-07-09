@@ -1,10 +1,11 @@
 "use client";
 
 import MessageDialog from "@/components/MessageDialog";
-import { Catagories, DataSet } from "@/lib/data";
-import { getRandomQuote } from "@/utils/functions";
+import { Button } from "@/components/UI/Button";
+import Data, { Categories, DataSet } from "@/lib/data";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { HiRefresh } from "react-icons/hi";
 
 export default function Game() {
   const [quote, setQuote] = useState<DataSet>({ quote: "", author: "" });
@@ -14,12 +15,17 @@ export default function Game() {
   const params = useParams();
 
   const openDialog = () => setIsOpen(true);
-  const closeDialog = () => setIsOpen(false);
+  const closeDialog = () => {
+    setIsOpen(false);
+    return changeQuote();
+  };
 
   const changeQuote = () => {
-    const data = getRandomQuote(params.catagories as Catagories);
+    const cat = params.catagories!;
+    const data = Data.get(cat as Categories);
     if (!data) return setError(true);
-    setQuote(data);
+    setQuote(data[Math.floor(Math.random() * data.length)]);
+    setAuthor("");
   };
 
   useEffect(() => {
@@ -31,33 +37,50 @@ export default function Game() {
       <h1>There is an error</h1>
     </main>
   ) : (
-    <main className="flex flex-col">
+    <main className="container mx-auto flex flex-col items-center space-y-5 justify-center my-20">
       <MessageDialog
         isOpen={isOpen}
         onClose={closeDialog}
         title={
-          quote.author.toLowerCase() === author.toLowerCase() ? "You Won!" : "Try again"
+          quote.author.toLowerCase() === author.toLowerCase() ||
+          quote.author.toLowerCase().split(" ").includes(author.toLowerCase())
+            ? "You Won!"
+            : "Wrong answer❌❌"
         }
         message={
-          quote.author.toLowerCase() === author.toLowerCase()
-            ? "Congratulation!!! You are so smart"
-            : "Better luck next time"
+          quote.author.toLowerCase() === author.toLowerCase() ||
+          quote.author.toLowerCase().split(" ").includes(author.toLowerCase()) ? (
+            <>
+              <p className="capitalize font-semibold">
+                Congratulation!!! You are so smart or a nerd
+              </p>
+              <p className="capitalize font-semibold">answer is {quote.author}</p>
+            </>
+          ) : (
+            <p>
+              Answer is <q>{quote.author}</q>
+            </p>
+          )
         }
       />
-      <button onClick={changeQuote}>refresh</button>
-      <span>{quote.quote}</span>
-      <span>{quote.author}</span>
+      <q className="text-5xl text-center font-semibold">{quote.quote}</q>
+      {/* <span>{quote.author}</span> //use this for debugging */}
       <input
-        className="border-2"
+        className="rounded-full text-center px-5 py-2 ring-2 ring-indigo-300 shadow-md shadow-indigo-500 w-1/2 mx-auto text-xl bg-slate-800 border-slate-500"
         value={author}
-        onChange={e => {
-          setAuthor(e.target.value);
-        }}
+        onChange={e => setAuthor(e.target.value)}
         type="text"
         name="author"
         id="author"
       />
-      <button onClick={openDialog}>answer</button>
+      <div className="flex space-x-5 items-center">
+        <button
+          className="text-3xl text-slate-500 hover:-rotate-180 transition-transform duration-500 ease-in-out"
+          onClick={changeQuote}>
+          <HiRefresh />
+        </button>
+        <Button onClick={openDialog}>answer</Button>
+      </div>
     </main>
   );
 }

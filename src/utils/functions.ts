@@ -1,8 +1,8 @@
-import Data, { Catagories } from "@/lib/data";
+import Data, { Categories } from "@/lib/data";
 
 import { ClassNameValue, twMerge } from "tailwind-merge";
 
-export function getRandomQuote(cat: Catagories) {
+export function getRandomQuote(cat: Categories) {
   const data = Data.get(cat);
   if (!data) {
     return null;
