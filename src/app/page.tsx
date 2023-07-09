@@ -1,6 +1,4 @@
-import { Button } from "@/components/UI/Button";
-import { categories } from "@/lib/data";
-import Link from "next/link";
+import { Categories } from "@/components/Categories";
 
 export default function Home() {
   return (
@@ -14,15 +12,7 @@ export default function Home() {
         behind each quote? Challenge your memory and showcase your fandom expertise. Let
         the guessing game begin!
       </p>
-      <div className="flex space-x-10 my-5">
-        {categories.map(item => {
-          return (
-            <Button size="lg" className="rounded-full even:col-span-2">
-              <Link href={`/game/${item}`}>{item}</Link>
-            </Button>
-          );
-        })}
-      </div>
+      <Categories />
     </main>
   );
 }

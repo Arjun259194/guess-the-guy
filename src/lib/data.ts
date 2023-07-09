@@ -3,19 +3,19 @@ export type DataSet = {
   author: string;
 };
 
-export const categories = [
-  "bollywood",
-  "hollywood",
-  "marvel",
-  "starwars",
-  "harry porter",
-] as const;
+export const categories = {
+  bollywood: "/img/bollywood.jpg",
+  hollywood: "/img/hollywood.webp",
+  marvel: "/img/marvel.jpg",
+  starwars: "/img/starwars.webp",
+  "harry-porter": "/img/harryPorter.jpg",
+};
 
-export type Categories = (typeof categories)[number];
+export type Categories = keyof typeof categories;
 
 const Data = new Map<Categories, DataSet[]>();
 
-Data.set("harry porter", [
+Data.set("harry-porter", [
   {
     quote: "It does not do to dwell on dreams and forget to live.",
     author: "Albus Dumbledore",
@@ -385,7 +385,7 @@ Data.set("bollywood", [
   },
   {
     quote: "Koi Dhanda Chota Nahi Hota Aur Dhande Se Bada Koi Dharm Nahi Hota.",
-    author: "Sultan (Sultan)",
+    author: "Raees",
   },
   {
     quote: "Main aaj bhi phenke hue paise nahi uthata.",

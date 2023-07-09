@@ -42,20 +42,22 @@ export default function Game() {
         isOpen={isOpen}
         onClose={closeDialog}
         title={
-          quote.author.toLowerCase() === author.toLowerCase() ||
-          quote.author.toLowerCase().split(" ").includes(author.toLowerCase())
+          quote.author.toLowerCase() === author.trim().toLowerCase() ||
+          quote.author.toLowerCase().split(" ").includes(author.trim().toLowerCase())
             ? "You Won!"
             : "Wrong answer❌❌"
         }
         message={
-          quote.author.toLowerCase() === author.toLowerCase() ||
-          quote.author.toLowerCase().split(" ").includes(author.toLowerCase()) ? (
-            <>
+          quote.author.toLowerCase() === author.trim().toLowerCase() ||
+          quote.author.toLowerCase().split(" ").includes(author.trim().toLowerCase()) ? (
+            <div className="space-y-3">
               <p className="capitalize font-semibold">
                 Congratulation!!! You are so smart or a nerd
               </p>
-              <p className="capitalize font-semibold">answer is {quote.author}</p>
-            </>
+              <p className="capitalize font-semibold">
+                answer is <q className="underline underline-offset-2">{quote.author}</q>
+              </p>
+            </div>
           ) : (
             <p>
               Answer is <q>{quote.author}</q>
@@ -66,7 +68,7 @@ export default function Game() {
       <q className="text-5xl text-center font-semibold">{quote.quote}</q>
       {/* <span>{quote.author}</span> //use this for debugging */}
       <input
-        className="rounded-full text-center px-5 py-2 ring-2 ring-indigo-300 shadow-md shadow-indigo-500 w-1/2 mx-auto text-xl bg-slate-800 border-slate-500"
+        className="outline-none rounded-full text-center px-5 py-2 ring-2 ring-indigo-300 shadow-md shadow-indigo-500 w-1/2 mx-auto text-xl bg-slate-800 border-slate-500"
         value={author}
         onChange={e => setAuthor(e.target.value)}
         type="text"
