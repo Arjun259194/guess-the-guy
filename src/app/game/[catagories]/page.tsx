@@ -2,25 +2,29 @@
 
 import MessageDialog from "@/components/MessageDialog";
 import { Button } from "@/components/UI/Button";
-import Data, { Categories, DataSet } from "@/lib/data";
+import Data, { Categories } from "@/lib/data";
+import { DataSet } from "@/lib/types";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { HiRefresh } from "react-icons/hi";
 
 export default function Game() {
   const [quote, setQuote] = useState<DataSet>({ quote: "", author: "", movie: "" });
-  const [author, setAuthor] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
-  const [error, setError] = useState(false);
+  const [author, setAuthor] = useState<string>("");
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [showHint, setShowHint] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
   const params = useParams();
 
   const openDialog = () => setIsOpen(true);
+
   const closeDialog = () => {
     setIsOpen(false);
     return changeQuote();
   };
 
   const changeQuote = () => {
+    setShowHint(false);
     const cat = params.catagories!;
     const data = Data.get(cat as Categories);
     if (!data) return setError(true);
@@ -66,7 +70,6 @@ export default function Game() {
         }
       />
       <q className="text-5xl text-center font-semibold">{quote.quote}</q>
-      {/* <span>{quote.author}</span> //use this for debugging */}
       <input
         className="outline-none rounded-full text-center px-5 py-2 ring-2 ring-indigo-300 shadow-md shadow-indigo-500 w-1/2 mx-auto text-xl bg-slate-800 border-slate-500"
         value={author}
@@ -77,11 +80,16 @@ export default function Game() {
       />
       <div className="flex space-x-5 items-center">
         <button
-          className="text-3xl text-slate-500 hover:-rotate-180 transition-transform duration-500 ease-in-out"
+          className=" hover:text-indigo-300 text-3xl text-slate-500 hover:-rotate-180 transition-all duration-500 ease-in-out"
           onClick={changeQuote}>
           <HiRefresh />
         </button>
-        <Button onClick={openDialog}>answer</Button>
+        <Button onClick={openDialog}>Go!</Button>
+        <button
+          onClick={() => setShowHint(!showHint)}
+          className={`py-2 px-6 uppercase font-semibold bg-slate-800 text-slate-400 rounded-xl ring-2 ring-slate-700`}>
+          {showHint ? quote.movie : "HINT"}
+        </button>
       </div>
     </main>
   );

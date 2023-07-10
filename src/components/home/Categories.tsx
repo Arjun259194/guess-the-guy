@@ -1,4 +1,5 @@
 import { categories } from "@/lib/data";
+import Link from "next/link";
 import { FC } from "react";
 import { Button } from "../UI/Button";
 import { CategoriesCard } from "./CategoriesCard";
@@ -13,7 +14,9 @@ export const Categories: FC = () => {
           return <CategoriesCard category={key} image={value} key={index} />;
         })}
       </div>
-      <Button variant="outline">More Categories</Button>
+      <Link href="/categories">
+        <Button variant="outline">More Categories</Button>
+      </Link>
     </section>
   );
 };

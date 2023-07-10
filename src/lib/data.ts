@@ -1,8 +1,4 @@
-export type DataSet = {
-  quote: string;
-  author: string;
-  movie: string;
-};
+import { DataSet } from "./types";
 
 export const categories = {
   bollywood: "/img/bollywood.jpg",
