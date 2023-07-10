@@ -1,3 +1,4 @@
+import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import type { Metadata } from "next";
 import "./globals.css";
@@ -10,9 +11,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-slate-900 text-gray-100">
+      <body className="min-h-screen flex flex-col bg-slate-900 text-gray-100">
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
