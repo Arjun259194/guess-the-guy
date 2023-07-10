@@ -69,6 +69,9 @@ export default function Game() {
           )
         }
       />
+      <h2 className="uppercase font-semibold text-slate-500">
+        You are playing {params.catagories}
+      </h2>
       <q className="text-5xl text-center font-semibold">{quote.quote}</q>
       <input
         className="outline-none rounded-full text-center px-5 py-2 ring-2 ring-indigo-300 shadow-md shadow-indigo-500 w-1/2 mx-auto text-xl bg-slate-800 border-slate-500"

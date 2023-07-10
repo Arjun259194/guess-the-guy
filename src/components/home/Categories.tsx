@@ -6,7 +6,7 @@ import { CategoriesCard } from "./CategoriesCard";
 
 export const Categories: FC = () => {
   return (
-    <section className="flex flex-col items-center space-y-5">
+    <section className="flex flex-col items-center space-y-10">
       <h3 className="text-3xl font-semibold capitalize">Famous Categories</h3>
       <div className="grid grid-cols-4 gap-5">
         {Object.entries(categories).map(([key, value], index) => {

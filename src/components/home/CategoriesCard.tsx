@@ -8,7 +8,7 @@ interface Props {
 
 export const CategoriesCard: FC<Props> = ({ category, image }) => {
   return (
-    <article className="group overflow-hidden ring-2 ring-gray-700 bg-slate-700 relative flex flex-col items-center justify-between rounded-lg ">
+    <article className="group overflow-hidden ring-2 ring-indigo-300 shadow-lg shadow-indigo-500 bg-slate-700 relative flex flex-col items-center justify-between rounded-lg ">
       <Link className="w-full h-full" href={`/game/${category}`}>
         <img
           className="rounded-lg cursor-pointer w-full h-full"
