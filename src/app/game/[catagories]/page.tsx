@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { HiRefresh } from "react-icons/hi";
 
 export default function Game() {
-  const [quote, setQuote] = useState<DataSet>({ quote: "", author: "" });
+  const [quote, setQuote] = useState<DataSet>({ quote: "", author: "", movie: "" });
   const [author, setAuthor] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [error, setError] = useState(false);

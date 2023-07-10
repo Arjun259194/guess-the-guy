@@ -13,6 +13,9 @@ export const Header = () => {
             <Link href="/about">about</Link>
           </li>
           <li className="hover:underline hover:underline-offset-2">
+            <Link href="/categories">Categories</Link>
+          </li>
+          <li className="hover:underline hover:underline-offset-2">
             <Link href="/help">How to play?</Link>
           </li>
         </ul>
