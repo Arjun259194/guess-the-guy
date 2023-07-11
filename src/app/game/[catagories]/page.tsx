@@ -2,7 +2,7 @@
 
 import MessageDialog from "@/components/MessageDialog";
 import { Button } from "@/components/UI/Button";
-import Data, { Categories } from "@/lib/data";
+import Data, { Categories, categories } from "@/lib/data";
 import { DataSet } from "@/lib/types";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -15,6 +15,7 @@ export default function Game() {
   const [showHint, setShowHint] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const params = useParams();
+  const cat = params.catagories as Categories;
 
   const openDialog = () => setIsOpen(true);
 
@@ -25,8 +26,7 @@ export default function Game() {
 
   const changeQuote = () => {
     setShowHint(false);
-    const cat = params.catagories!;
-    const data = Data.get(cat as Categories);
+    const data = Data.get(cat);
     if (!data) return setError(true);
     setQuote(data[Math.floor(Math.random() * data.length)]);
     setAuthor("");
@@ -47,13 +47,13 @@ export default function Game() {
         onClose={closeDialog}
         title={
           quote.author.toLowerCase() === author.trim().toLowerCase() ||
-          quote.author.toLowerCase().split(" ").includes(author.trim().toLowerCase())
+            quote.author.toLowerCase().split(" ").includes(author.trim().toLowerCase())
             ? "You Won!"
             : "Wrong answer❌❌"
         }
         message={
           quote.author.toLowerCase() === author.trim().toLowerCase() ||
-          quote.author.toLowerCase().split(" ").includes(author.trim().toLowerCase()) ? (
+            quote.author.toLowerCase().split(" ").includes(author.trim().toLowerCase()) ? (
             <div className="space-y-3">
               <p className="capitalize font-semibold">
                 Congratulation!!! You are so smart or a nerd
@@ -69,9 +69,12 @@ export default function Game() {
           )
         }
       />
-      <h2 className="uppercase font-semibold text-slate-500">
-        You are playing {params.catagories}
-      </h2>
+      <div className="space-y-2">
+        <img className="w-52 mx-auto" src={categories[cat]} alt={cat} />
+        <h2 className="uppercase font-semibold text-slate-500">
+          You are playing {params.catagories}
+        </h2>
+      </div>
       <q className="text-5xl text-center font-semibold">{quote.quote}</q>
       <input
         className="outline-none rounded-full text-center px-5 py-2 ring-2 ring-indigo-300 shadow-md shadow-indigo-500 w-1/2 mx-auto text-xl bg-slate-800 border-slate-500"
@@ -91,7 +94,7 @@ export default function Game() {
         <button
           onClick={() => setShowHint(!showHint)}
           className={`py-2 px-6 uppercase font-semibold bg-slate-800 text-slate-400 rounded-xl ring-2 ring-slate-700`}>
-          {showHint ? quote.movie : "HINT"}
+          {showHint ? `From "${quote.movie}"` : "HINT"}
         </button>
       </div>
     </main>
